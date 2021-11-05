@@ -32,4 +32,26 @@ public class Bank {
     public void addNewBranch(Branch branch) {
         branches.add(branch);
     }
+
+    public boolean removeBranch(String name) {
+        int branchIndex = findBranch(name);
+        if(branchIndex >= 0) {
+            branches.remove(branchIndex);
+            return true;
+        } else
+            return false;
+    }
+
+    public int findBranch(String name) {
+        for(int i = 0; i < branches.size(); i++) {
+            String curName = branches.get(i).getName();
+            if(curName.equals(name))
+                return i;
+        }
+        return -1;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
