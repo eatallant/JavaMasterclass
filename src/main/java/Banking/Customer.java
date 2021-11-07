@@ -1,16 +1,20 @@
 package Banking;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Customer {
     private String name;
     private ArrayList<Double> transactions;
+    private String[] accountTypes = new String[]{"Basic", "Preferred"};
+    private String accountType;
 
     // open account. initial transaction required.
     public Customer(String name, double transaction) {
         this.name = name;
         this.transactions = new ArrayList<>();
         transactions.add(transaction);
+        setAccountType();
     }
 
     public void deposit(double amount) {
@@ -66,5 +70,14 @@ public class Customer {
         return name;
     }
 
+    public void setAccountType() {
+        System.out.println("Assign account type from the below choices: ");
+        for(int i = 0; i < accountTypes.length; i++) {
+            System.out.println(i + ": " + accountTypes[i]);
+        }
+        Scanner scanner = new Scanner(System.in);
+        int accountType = scanner.nextInt();
 
+        this.accountType = accountTypes[accountType];
+    }
 }
