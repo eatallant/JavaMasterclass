@@ -1,10 +1,9 @@
 import Banking.Bank;
 import Banking.Branch;
 import Banking.Customer;
-import Playlist.*;
-
-import java.util.Iterator;
-import java.util.Scanner;
+import Playlist.Album;
+import Playlist.Playlist;
+import Playlist.Song;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,21 +30,11 @@ public class Main {
 
         Playlist pop = new Playlist("Pop");
         pop.addSong(taylorSwift);
+
+        Playlist.startPlaylist(pop);
     }
 
-    public static void startPlaylist(Playlist playlist) {
-        Scanner scanner = new Scanner(System.in);
-        Iterator<Song> songsIterator = playlist.getSongs().iterator();
-        System.out.println("Now playing: " + songsIterator.next() + "\n" +
-                            "Menu -\n" +
-                            "1. Next song\n" +
-                            "2. Previous song\n" +
-                            "3. Replay\n" +
-                            "4. Quit");
-        System.out.print("Choose option: ");
-        int choice = scanner.nextInt();
 
-    }
 
 
 }

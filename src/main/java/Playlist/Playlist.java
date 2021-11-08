@@ -18,6 +18,8 @@
 package Playlist;
 
 import java.util.LinkedList;
+import java.util.ListIterator;
+import java.util.Scanner;
 
 public class Playlist {
     private String name;
@@ -37,4 +39,29 @@ public class Playlist {
     public LinkedList<Song> getSongs() {
         return songs;
     }
+
+    public static void startPlaylist(Playlist playlist) {
+        ListIterator<Song> songsIterator = playlist.getSongs().listIterator();
+        Song current = songsIterator.next();
+
+        switch (playlistMenu(current)) {
+            case 1:
+
+        }
+
+    }
+
+    private static int playlistMenu(Song song) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Now playing: " + song.getTitle() + "\n" +
+                "Menu -\n" +
+                "1. Next song\n" +
+                "2. Previous song\n" +
+                "3. Replay\n" +
+                "4. Quit");
+        System.out.print("Choose option: ");
+        return scanner.nextInt();
+    }
+
+
 }
