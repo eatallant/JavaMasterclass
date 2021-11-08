@@ -15,14 +15,23 @@ public class Customer {
         this.transactions = new ArrayList<>();
         transactions.add(transaction);
         setAccountType();
+        System.out.println(accountType + " selected");
     }
 
     public void deposit(double amount) {
+        if(amount < 0) {
+            System.out.println("Amount must be greater than zero.");
+            return;
+        }
         transactions.add(amount);
     }
 
     public void withdraw(double amount) {
-        amount *= -1;
+        if(amount < 0) {
+            System.out.println("Amount must be greater than zero.");
+            return;
+        }
+        amount *= -1; // deduction represented as a negative amount
         transactions.add(amount);
     }
 
